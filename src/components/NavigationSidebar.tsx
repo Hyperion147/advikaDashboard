@@ -23,49 +23,45 @@ export function NavigationSidebar({
         {
             label: "Dashboard",
             href: "/",
-            icon: (
-                <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-            ),
+            icon: <IconBrandTabler className="h-5 w-5 shrink-0" />,
         },
         {
             label: "Profile",
             href: "/profile",
-            icon: (
-                <IconUserBolt className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-            ),
+            icon: <IconUserBolt className="h-5 w-5 shrink-0" />,
         },
         {
             label: "Settings",
             href: "/settings",
-            icon: (
-                <IconSettings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-            ),
-        },
-        {
-            label: "Logout",
-            href: "/logout",
-            icon: (
-                <IconArrowLeft className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-            ),
+            icon: <IconSettings className="h-5 w-5 shrink-0" />,
         },
     ];
+
+    const logoutLink = {
+        label: "Logout",
+        href: "/logout",
+        icon: <IconArrowLeft className="h-5 w-5 shrink-0" />,
+    };
 
     return (
         <div className="flex h-screen">
             <div
                 className={cn(
-                    "flex flex-1 md:flex-row border-r-2 top-0 left-0 h-full w-60"
+                    "flex flex-1 md:flex-row border-r-2 top-0 left-0 h-full w-60 text-primary"
                 )}
             >
                 <Sidebar open={open} setOpen={setOpen}>
                     <SidebarBody className="justify-between gap-10 border-r-2 rounded-lg fixed z-20">
-                        <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
-                            {open ? <Logo /> : <LogoIcon />}
-                            <div className="mt-8 flex flex-col gap-2">
-                                {links.map((link, idx) => (
-                                    <SidebarLink key={idx} link={link} />
-                                ))}
+                        <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto justify-between">
+                            <div>
+                                {open ? <Logo /> : <LogoIcon />}
+                                <div className="mt-8 flex flex-col gap-2">
+                                    {links.map((link, idx) => (
+                                        <SidebarLink key={idx} link={link} />
+                                    ))}
+                                </div>
                             </div>
+                            <SidebarLink link={logoutLink} />
                         </div>
                     </SidebarBody>
                 </Sidebar>
@@ -78,28 +74,30 @@ export function NavigationSidebar({
 }
 export const Logo = () => {
     return (
-        <a
-            href="#"
-            className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
-        >
-            <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
+        <p className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal">
+            <img
+                src="/logo.jpeg"
+                alt=""
+                className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg"
+            />
             <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="font-medium whitespace-pre text-black dark:text-white"
+                className="font-medium whitespace-pre"
             >
                 Advika Innovate
             </motion.span>
-        </a>
+        </p>
     );
 };
 export const LogoIcon = () => {
     return (
-        <a
-            href="#"
-            className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
-        >
-            <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
-        </a>
+        <p className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal">
+            <img
+                src="/logo.jpeg"
+                alt=""
+                className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg"
+            />
+        </p>
     );
 };

@@ -55,7 +55,7 @@ export function Dashboard() {
           <h1 className="text-3xl font-bold text-balance">Good morning, John! 👋</h1>
           <p className="text-muted-foreground mt-1">Here's what's happening with your work today.</p>
         </div>
-        <Button className="bg-accent hover:bg-accent/90">
+        <Button className="bg-accent hover:bg-accent/90 text-primary">
           <Calendar className="w-4 h-4 mr-2" />
           Mark Attendance
         </Button>
@@ -69,12 +69,12 @@ export function Dashboard() {
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-accent">{mockData.attendance.percentage}%</div>
+            <div className="text-2xl font-bold text-primary">{mockData.attendance.percentage}%</div>
             <p className="text-xs text-muted-foreground">
               {mockData.attendance.thisMonth}/{mockData.attendance.totalDays} days this month
             </p>
             <div className="mt-2">
-              <Badge variant="secondary" className="text-xs">
+              <Badge variant="secondary" className="text-xs text-primary">
                 <CheckCircle className="w-3 h-3 mr-1" />
                 {mockData.attendance.status}
               </Badge>
@@ -88,10 +88,10 @@ export function Dashboard() {
             <Target className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-chart-3">{mockData.performance.tasksCompleted}</div>
+            <div className="text-2xl font-bold text-ring">{mockData.performance.tasksCompleted}</div>
             <p className="text-xs text-muted-foreground">+12% from last month</p>
             <div className="mt-2">
-              <Badge variant="outline" className="text-xs text-chart-3 border-chart-3">
+              <Badge variant="outline" className="text-xs text-ring border-ring">
                 <TrendingUp className="w-3 h-3 mr-1" />
                 Trending Up
               </Badge>
@@ -108,8 +108,8 @@ export function Dashboard() {
             <div className="text-2xl font-bold text-chart-1">{mockData.performance.codeReviews}</div>
             <p className="text-xs text-muted-foreground">5 pending reviews</p>
             <div className="mt-2">
-              <Badge variant="outline" className="text-xs">
-                <Users className="w-3 h-3 mr-1" />
+              <Badge variant="outline" className="text-xs text-chart-1 border-chart-1">
+                <Users className="w-3 h-3 mr-1 text-chart-1" />
                 Team Player
               </Badge>
             </div>
@@ -122,10 +122,10 @@ export function Dashboard() {
             <Bug className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-chart-4">{mockData.performance.bugsFixed}</div>
+            <div className="text-2xl font-bold text-chart-2">{mockData.performance.bugsFixed}</div>
             <p className="text-xs text-muted-foreground">2 critical, 6 minor</p>
             <div className="mt-2">
-              <Badge variant="outline" className="text-xs text-chart-4 border-chart-4">
+              <Badge variant="outline" className="text-xs text-chart-2 border-chart-2">
                 <Award className="w-3 h-3 mr-1" />
                 Bug Hunter
               </Badge>
