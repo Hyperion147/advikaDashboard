@@ -20,19 +20,27 @@ export function NavigationSidebar({
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const links = [
+        
         {
             label: "Dashboard",
             href: "/",
-            icon: <IconBrandTabler className="h-5 w-5 shrink-0" />,
-        },
-        {
-            label: "Profile",
-            href: "/profile",
             icon: <IconUserBolt className="h-5 w-5 shrink-0" />,
         },
         {
-            label: "Settings",
-            href: "/settings",
+            label: "Employees",
+            href: "/employees",
+            icon: <IconSettings className="h-5 w-5 shrink-0" />,
+        },
+    ];
+    const emplinks = [
+        {
+            label: "Employee Dashboard Test",
+            href: "/employee/dashboard",
+            icon: <IconBrandTabler className="h-5 w-5 shrink-0" />,
+        },
+        {
+            label: "Employee Attendance Test",
+            href: "/employee/attendance",
             icon: <IconSettings className="h-5 w-5 shrink-0" />,
         },
     ];
@@ -47,16 +55,21 @@ export function NavigationSidebar({
         <div className="flex h-screen">
             <div
                 className={cn(
-                    "flex flex-1 md:flex-row border-r-2 top-0 left-0 h-full w-60 text-primary"
+                    "flex flex-1 md:flex-row top-0 left-0 h-full w-60 text-primary"
                 )}
             >
                 <Sidebar open={open} setOpen={setOpen}>
-                    <SidebarBody className="justify-between gap-10 border-r-2 rounded-lg fixed z-20">
+                    <SidebarBody className="justify-between gap-10 rounded-lg fixed z-20">
                         <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto justify-between">
                             <div>
                                 {open ? <Logo /> : <LogoIcon />}
                                 <div className="mt-8 flex flex-col gap-2">
                                     {links.map((link, idx) => (
+                                        <SidebarLink key={idx} link={link} />
+                                    ))}
+                                </div>
+                                <div className="mt-8 flex flex-col gap-2">
+                                    {emplinks.map((link, idx) => (
                                         <SidebarLink key={idx} link={link} />
                                     ))}
                                 </div>
