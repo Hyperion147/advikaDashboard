@@ -1,11 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { Dashboard } from "./pages/admin/Dashboard";
 import { NavigationSidebar } from "./components/NavigationSidebar";
-import { AdminOverview } from "./pages/admin/AdminOverview";
+import { AdminOverview } from "./pages/AdminOverview";
 import { useState } from "react";
-import { AttendanceSetup } from "./pages/employee/AttendanceSetup";
-import { EmployeeManagement } from "./pages/admin/EmployeeManagement";
-import { EmployeeDetail } from "./pages/employee/[id]/employee";
+import { EmployeeManagement } from "./pages/EmployeeManagement";
+import { EmployeeDetail } from "./pages/employee/[id]/Employee";
+import { AdminTaskAssignment } from "./pages/AdminTaskAssignment";
 // import Profile from "./pages/Profile";
 // import Settings from "./pages/Settings";
 // import Logout from "./pages/Logout";
@@ -20,10 +19,8 @@ function App() {
             >
                 <Route path="/" element={<AdminOverview />} />
                 <Route path="/employees" element={<EmployeeManagement />} />
+                <Route path="/managetasks" element={<AdminTaskAssignment />} />
                 <Route path="/employees/:id" element={<EmployeeDetail employeeId="" />} />
-
-                <Route path="/employee/dashboard" element={<Dashboard />} />
-                <Route path="/employee/attendance" element={<AttendanceSetup />} />
             </Route>
         </Routes>
     );
